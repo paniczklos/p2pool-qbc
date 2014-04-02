@@ -32,7 +32,7 @@ nets = dict(
         BLOCKHASH_FUNC=lambda data: pack.IntType(256).unpack(__import__('xcoin_hash').getPoWHash(data)),
         POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('xcoin_hash').getPoWHash(data)),
         BLOCK_PERIOD=60, # s
-        SYMBOL='HIC',
+        SYMBOL='HIRO',
         CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'Hirocoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/Hirocoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.hirocoin'), 'hirocoin.conf'),
         BLOCK_EXPLORER_URL_PREFIX='http://coyn.org/hirocoin/explorer/block/index.php?hash=',
         ADDRESS_EXPLORER_URL_PREFIX='http://coyn.org/hirocoin/explorer/address/?address=',
