@@ -9,8 +9,8 @@ from p2pool.util import math
 
 nets = dict(
 
-    hirocoin=math.Object(
-        PARENT=networks.nets['hirocoin'],
+    québecoin=math.Object(
+        PARENT=networks.nets['québecoin'],
         SHARE_PERIOD=15, # seconds
         NEW_SHARE_PERIOD=15, # seconds
         CHAIN_LENGTH=24*60*60//10, # shares
@@ -18,15 +18,15 @@ nets = dict(
         TARGET_LOOKBEHIND=200, # shares  //with that the pools share diff is adjusting faster, important if huge hashing power comes to the pool
         SPREAD=30, # blocks
         NEW_SPREAD=30, # blocks
-        IDENTIFIER='496247d46a02b228'.decode('hex'),
-        PREFIX='5685a273806822dd'.decode('hex'),
-        P2P_PORT=9452,
+        IDENTIFIER='28496247d46a02b2'.decode('hex'),
+        PREFIX='dd5685a273806822'.decode('hex'),
+        P2P_PORT=9413,
         MIN_TARGET=4,
         MAX_TARGET=2**256//2**20 - 1,
         PERSIST=False,
-        WORKER_PORT=9408,
-        BOOTSTRAP_ADDRS='hiro.qemulab.com'.split(' '),
-        ANNOUNCE_CHANNEL='#p2pool-hic',
+        WORKER_PORT=9409,
+        BOOTSTRAP_ADDRS='freebtc.eu'.split(' '),
+        ANNOUNCE_CHANNEL='#p2pool-qbc',
         VERSION_CHECK=lambda v: True,
     ),
 
