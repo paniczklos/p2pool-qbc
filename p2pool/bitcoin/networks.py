@@ -19,7 +19,7 @@ def check_genesis_block(bitcoind, genesis_block_hash):
 
 nets = dict(
 
-    qbc=math.Object(
+    québecoin=math.Object(
         P2P_PREFIX='d3edc9f1'.decode('hex'),
         P2P_PORT=56790,
         ADDRESS_VERSION=58,
