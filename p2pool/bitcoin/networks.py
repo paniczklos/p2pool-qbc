@@ -19,21 +19,21 @@ def check_genesis_block(bitcoind, genesis_block_hash):
 
 nets = dict(
 
-    hirocoin=math.Object(
-        P2P_PREFIX='fec3b9de'.decode('hex'),
-        P2P_PORT=9348,
-        ADDRESS_VERSION=40,
-        RPC_PORT=9347,
+    qbc=math.Object(
+        P2P_PREFIX='d3edc9f1'.decode('hex'),
+        P2P_PORT=56790,
+        ADDRESS_VERSION=58,
+        RPC_PORT=56789,
         RPC_CHECK=defer.inlineCallbacks(lambda bitcoind: defer.returnValue(
-            'hirocoinaddress' in (yield bitcoind.rpc_help()) and
+            'québecoinaddress' in (yield bitcoind.rpc_help()) and
             not (yield bitcoind.rpc_getinfo())['testnet']
         )),                           
-        SUBSIDY_FUNC=lambda height: 400*100000000 >> (height + 1)//840000,
+        SUBSIDY_FUNC=lambda height: 26*100000000 >> (height + 1)//420480,
         BLOCKHASH_FUNC=lambda data: pack.IntType(256).unpack(__import__('xcoin_hash').getPoWHash(data)),
         POW_FUNC=lambda data: pack.IntType(256).unpack(__import__('xcoin_hash').getPoWHash(data)),
-        BLOCK_PERIOD=60, # s
-        SYMBOL='HIRO',
-        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'Hirocoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/Hirocoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.hirocoin'), 'hirocoin.conf'),
+        BLOCK_PERIOD=150, # s
+        SYMBOL='QBC',
+        CONF_FILE_FUNC=lambda: os.path.join(os.path.join(os.environ['APPDATA'], 'québecoin') if platform.system() == 'Windows' else os.path.expanduser('~/Library/Application Support/québecoin/') if platform.system() == 'Darwin' else os.path.expanduser('~/.québecoin'), 'québecoin.conf'),
         BLOCK_EXPLORER_URL_PREFIX='http://explorer.hirocoin.org/block/',
         ADDRESS_EXPLORER_URL_PREFIX='http://explorer.hirocoin.org/address/',
         TX_EXPLORER_URL_PREFIX='http://explorer.hirocoin.org/tx/',
