@@ -9,7 +9,7 @@ from p2pool.util import math
 
 nets = dict(
 
-    québecoin=math.Object(
+    quebecoin=math.Object(
         PARENT=networks.nets['québecoin'],
         SHARE_PERIOD=15, # seconds
         NEW_SHARE_PERIOD=15, # seconds
